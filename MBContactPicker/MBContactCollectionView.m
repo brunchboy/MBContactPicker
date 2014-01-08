@@ -106,6 +106,9 @@ typedef NS_ENUM(NSInteger, ContactCollectionViewSection) {
 
 - (BOOL)resignFirstResponder
 {
+    MBContactEntryCollectionViewCell *entryCell = (MBContactEntryCollectionViewCell *)[self cellForItemAtIndexPath:[self entryCellIndexPath]];
+    [entryCell clearFocus];
+
     if (self.indexPathsForSelectedItems.count > 0)
     {
         for (NSIndexPath *indexPath in self.indexPathsForSelectedItems) {
