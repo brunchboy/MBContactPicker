@@ -31,6 +31,8 @@
 - (void)contactPicker:(MBContactPicker*)contactPicker didUpdateContentHeightTo:(CGFloat)newHeight;
 - (void)didShowFilteredContactsForContactPicker:(MBContactPicker*)contactPicker;
 - (void)didHideFilteredContactsForContactPicker:(MBContactPicker*)contactPicker;
+- (void)contactPickerDidBeginEditing:(MBContactPicker*)contactPicker;
+- (void)contactPickerDidEndEditing:(MBContactPicker*)contactPicker;
 
 @end
 

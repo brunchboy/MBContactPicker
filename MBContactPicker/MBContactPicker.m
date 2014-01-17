@@ -351,12 +351,21 @@ CGFloat const kAnimationSpeed = .25;
         }
     }
     
+    if ([self.delegate respondsToSelector:@selector(contactPickerDidBeginEditing:)])
+    {
+        [self.delegate contactPickerDidBeginEditing:self];
+    }
     return YES;
 }
 
 - (BOOL)resignFirstResponder
 {
-    return [self.contactCollectionView resignFirstResponder];
+    BOOL result = [self.contactCollectionView resignFirstResponder];
+    if (result && [self.delegate respondsToSelector:@selector(contactPickerDidEndEditing:)])
+    {
+        [self.delegate contactPickerDidEndEditing:self];
+    }
+    return result;
 }
 
 #pragma mark Helper Methods
